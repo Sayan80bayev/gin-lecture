@@ -70,14 +70,14 @@ func (h *PostHandler) UpdatePost(c *gin.Context) {
 		return
 	}
 
-	post, err := h.service.Update(req.Title, req.Description, req.Content, id)
+	err := h.service.Update(req.Title, req.Description, req.Content, id)
 
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create post"})
 		return
 	}
 
-	c.JSON(http.StatusCreated, post)
+	c.JSON(http.StatusCreated, "Successfully updated post")
 }
 
 func (h *PostHandler) DeletePost(c *gin.Context) {

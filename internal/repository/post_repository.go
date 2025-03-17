@@ -31,7 +31,7 @@ func (p PostRepositoryImpl) Create(post *model.Post) error {
 }
 
 func (p PostRepositoryImpl) Update(post *model.Post, id int) error {
-	return p.db.Updates(post).Error
+	return p.db.Model(&model.Post{}).Where("id = ?", id).Omit("id, CreatedAt").Updates(post).Error
 }
 
 func (p PostRepositoryImpl) Delete(postID int) error {

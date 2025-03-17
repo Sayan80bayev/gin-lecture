@@ -42,14 +42,14 @@ func (p *PostService) Create(title, description, content string) (*model.Post, e
 	return post, err
 }
 
-func (p *PostService) Update(title, description, content string, id int) (*model.Post, error) {
+func (p *PostService) Update(title, description, content string, id int) error {
 	post := &model.Post{
 		Title:       title,
 		Description: description,
 		Content:     content,
 	}
 	err := p.repo.Update(post, id)
-	return post, err
+	return err
 }
 
 func (p *PostService) Delete(postID int) error {
