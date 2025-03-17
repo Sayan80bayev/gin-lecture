@@ -28,7 +28,7 @@ func (h *PostHandler) GetPost(c *gin.Context) {
 func (h *PostHandler) GetPosts(c *gin.Context) {
 	posts, err := h.service.GetAllPosts()
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create posts"})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update posts"})
 		return
 	}
 	c.JSON(http.StatusOK, posts)
